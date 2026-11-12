@@ -13,7 +13,10 @@ public class Productora extends Thread {
 	public void run() {
 		try {
 			// Intenta escribir en el recurso
-			buffer.introducirDato(ThreadLocalRandom.current().nextInt(10_001));
+			for (int i = 0; i < 5; i++) {
+				buffer.introducirDato(ThreadLocalRandom.current().nextInt(10_001));
+				Thread.sleep(ThreadLocalRandom.current().nextInt(300));
+			}
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}

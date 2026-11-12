@@ -12,8 +12,11 @@ public class Consumidora extends Thread {
 
 	public void run() {
 		try {
-			// Intenta escribir en el recurso
-			int dato = buffer.leerDato();
+			// Intenta leer en el recurso
+			for (int i = 0; i < 7; i++) {
+				int dato = buffer.leerDato();
+				Thread.sleep(ThreadLocalRandom.current().nextInt(600));
+			}
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
